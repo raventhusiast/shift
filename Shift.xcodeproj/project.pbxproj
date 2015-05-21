@@ -14,6 +14,7 @@
 		539F1B2C1B0E33DA002F90C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 539F1B2B1B0E33DA002F90C5 /* Images.xcassets */; };
 		539F1B2F1B0E33DA002F90C5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 539F1B2D1B0E33DA002F90C5 /* MainMenu.xib */; };
 		539F1B3B1B0E33DB002F90C5 /* ShiftTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B3A1B0E33DB002F90C5 /* ShiftTests.m */; };
+		539F1B451B0E375E002F90C5 /* File in Resources */ = {isa = PBXBuildFile; fileRef = 539F1B441B0E375E002F90C5 /* File */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		539F1B341B0E33DB002F90C5 /* ShiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		539F1B391B0E33DB002F90C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		539F1B3A1B0E33DB002F90C5 /* ShiftTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShiftTests.m; sourceTree = "<group>"; };
+		539F1B441B0E375E002F90C5 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				539F1B2B1B0E33DA002F90C5 /* Images.xcassets */,
 				539F1B2D1B0E33DA002F90C5 /* MainMenu.xib */,
 				539F1B1F1B0E33DA002F90C5 /* Supporting Files */,
+				539F1B441B0E375E002F90C5 /* File */,
 			);
 			path = Shift;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				539F1B451B0E375E002F90C5 /* File in Resources */,
 				539F1B2A1B0E33DA002F90C5 /* GameScene.sks in Resources */,
 				539F1B2C1B0E33DA002F90C5 /* Images.xcassets in Resources */,
 				539F1B2F1B0E33DA002F90C5 /* MainMenu.xib in Resources */,
