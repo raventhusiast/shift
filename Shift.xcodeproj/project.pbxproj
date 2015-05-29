@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5343726F1B18157A00D1175F /* Character.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5343726E1B18157A00D1175F /* Character.atlas */; };
+		534372781B18809E00D1175F /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 534372771B18809E00D1175F /* Platform.m */; };
 		539F1B231B0E33DA002F90C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B221B0E33DA002F90C5 /* AppDelegate.m */; };
 		539F1B251B0E33DA002F90C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B241B0E33DA002F90C5 /* main.m */; };
 		539F1B281B0E33DA002F90C5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B271B0E33DA002F90C5 /* GameScene.m */; };
@@ -30,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		5343726E1B18157A00D1175F /* Character.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Character.atlas; sourceTree = "<group>"; };
+		534372761B18809E00D1175F /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = ../Platform.h; sourceTree = "<group>"; };
+		534372771B18809E00D1175F /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = ../Platform.m; sourceTree = "<group>"; };
 		539F1B1C1B0E33DA002F90C5 /* Shift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		539F1B201B0E33DA002F90C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		539F1B211B0E33DA002F90C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 		539F1B1E1B0E33DA002F90C5 /* Shift */ = {
 			isa = PBXGroup;
 			children = (
+				534372761B18809E00D1175F /* Platform.h */,
+				534372771B18809E00D1175F /* Platform.m */,
 				5343726E1B18157A00D1175F /* Character.atlas */,
 				539F1B211B0E33DA002F90C5 /* AppDelegate.h */,
 				539F1B221B0E33DA002F90C5 /* AppDelegate.m */,
@@ -228,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				539F1B251B0E33DA002F90C5 /* main.m in Sources */,
+				534372781B18809E00D1175F /* Platform.m in Sources */,
 				539F1B281B0E33DA002F90C5 /* GameScene.m in Sources */,
 				539F1B231B0E33DA002F90C5 /* AppDelegate.m in Sources */,
 			);
