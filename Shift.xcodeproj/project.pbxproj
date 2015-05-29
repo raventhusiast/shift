@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5343726F1B18157A00D1175F /* Character.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5343726E1B18157A00D1175F /* Character.atlas */; };
 		539F1B231B0E33DA002F90C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B221B0E33DA002F90C5 /* AppDelegate.m */; };
 		539F1B251B0E33DA002F90C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B241B0E33DA002F90C5 /* main.m */; };
 		539F1B281B0E33DA002F90C5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B271B0E33DA002F90C5 /* GameScene.m */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5343726E1B18157A00D1175F /* Character.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Character.atlas; sourceTree = "<group>"; };
 		539F1B1C1B0E33DA002F90C5 /* Shift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		539F1B201B0E33DA002F90C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		539F1B211B0E33DA002F90C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		539F1B1E1B0E33DA002F90C5 /* Shift */ = {
 			isa = PBXGroup;
 			children = (
+				5343726E1B18157A00D1175F /* Character.atlas */,
 				539F1B211B0E33DA002F90C5 /* AppDelegate.h */,
 				539F1B221B0E33DA002F90C5 /* AppDelegate.m */,
 				539F1B261B0E33DA002F90C5 /* GameScene.h */,
@@ -205,6 +208,7 @@
 				539F1B451B0E375E002F90C5 /* File in Resources */,
 				539F1B2A1B0E33DA002F90C5 /* GameScene.sks in Resources */,
 				539F1B2C1B0E33DA002F90C5 /* Images.xcassets in Resources */,
+				5343726F1B18157A00D1175F /* Character.atlas in Resources */,
 				539F1B2F1B0E33DA002F90C5 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +419,7 @@
 				539F1B401B0E33DB002F90C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		539F1B411B0E33DB002F90C5 /* Build configuration list for PBXNativeTarget "ShiftTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				539F1B431B0E33DB002F90C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
