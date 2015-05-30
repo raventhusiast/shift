@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "Platform.h"
+#import "StartScene.h"
 
 @implementation GameScene
 {
@@ -17,8 +18,15 @@
 }
 -(void)didMoveToView:(SKView *)view {
     [self newGame:lvl];
+    //[self gotoStartScene];
     
-    
+}
+
+-(void)gotoStartScene
+{
+    SKScene *myScene = [[StartScene alloc] initWithSize:self.size];
+    SKTransition *reveal = [SKTransition fadeWithDuration:0.5];
+    [self.view presentScene:myScene transition:reveal];
 }
 
 -(void)newGame: (int) lvl
@@ -26,7 +34,7 @@
     self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 );
     
     
-    
+    [self setBackgroundColor:[SKColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0]];
     /* Setup your scene here
      SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
      
@@ -177,7 +185,7 @@
                     //self.defaultPlayer.moveForward = downOrUp;
                     //_character.physicsBody.velocity = CGVectorMake(0, 0);
                     //[_character.physicsBody applyImpulse:CGVectorMake(0, 250)];
-                    _character.physicsBody.velocity = CGVectorMake(_character.physicsBody.velocity.dx, 250);
+                    _character.physicsBody.velocity = CGVectorMake(_character.physicsBody.velocity.dx, 450);
                     break;
                 case NSLeftArrowFunctionKey:
                     //self.defaultPlayer.moveLeft = downOrUp;

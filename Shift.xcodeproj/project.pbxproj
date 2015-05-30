@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5343726F1B18157A00D1175F /* Character.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5343726E1B18157A00D1175F /* Character.atlas */; };
 		534372781B18809E00D1175F /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 534372771B18809E00D1175F /* Platform.m */; };
+		5343727E1B1930A300D1175F /* StartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5343727D1B1930A300D1175F /* StartScene.m */; };
 		539F1B231B0E33DA002F90C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B221B0E33DA002F90C5 /* AppDelegate.m */; };
 		539F1B251B0E33DA002F90C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B241B0E33DA002F90C5 /* main.m */; };
 		539F1B281B0E33DA002F90C5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B271B0E33DA002F90C5 /* GameScene.m */; };
@@ -17,6 +18,8 @@
 		539F1B2F1B0E33DA002F90C5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 539F1B2D1B0E33DA002F90C5 /* MainMenu.xib */; };
 		539F1B3B1B0E33DB002F90C5 /* ShiftTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 539F1B3A1B0E33DB002F90C5 /* ShiftTests.m */; };
 		539F1B451B0E375E002F90C5 /* File in Resources */ = {isa = PBXBuildFile; fileRef = 539F1B441B0E375E002F90C5 /* File */; };
+		53A6AEFE1B19408200D4C9FB /* EndScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53A6AEFC1B19408200D4C9FB /* EndScene.sks */; };
+		53A6AEFF1B19408200D4C9FB /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53A6AEFD1B19408200D4C9FB /* StartScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,8 @@
 		5343726E1B18157A00D1175F /* Character.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Character.atlas; sourceTree = "<group>"; };
 		534372761B18809E00D1175F /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = ../Platform.h; sourceTree = "<group>"; };
 		534372771B18809E00D1175F /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = ../Platform.m; sourceTree = "<group>"; };
+		5343727C1B1930A300D1175F /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../StartScene.h; sourceTree = "<group>"; };
+		5343727D1B1930A300D1175F /* StartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartScene.m; path = ../StartScene.m; sourceTree = "<group>"; };
 		539F1B1C1B0E33DA002F90C5 /* Shift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		539F1B201B0E33DA002F90C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		539F1B211B0E33DA002F90C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -47,6 +52,8 @@
 		539F1B391B0E33DB002F90C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		539F1B3A1B0E33DB002F90C5 /* ShiftTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShiftTests.m; sourceTree = "<group>"; };
 		539F1B441B0E375E002F90C5 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		53A6AEFC1B19408200D4C9FB /* EndScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScene.sks; sourceTree = "<group>"; };
+		53A6AEFD1B19408200D4C9FB /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +95,10 @@
 		539F1B1E1B0E33DA002F90C5 /* Shift */ = {
 			isa = PBXGroup;
 			children = (
+				53A6AEFC1B19408200D4C9FB /* EndScene.sks */,
+				53A6AEFD1B19408200D4C9FB /* StartScene.sks */,
+				5343727C1B1930A300D1175F /* StartScene.h */,
+				5343727D1B1930A300D1175F /* StartScene.m */,
 				534372761B18809E00D1175F /* Platform.h */,
 				534372771B18809E00D1175F /* Platform.m */,
 				5343726E1B18157A00D1175F /* Character.atlas */,
@@ -210,6 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53A6AEFF1B19408200D4C9FB /* StartScene.sks in Resources */,
+				53A6AEFE1B19408200D4C9FB /* EndScene.sks in Resources */,
 				539F1B451B0E375E002F90C5 /* File in Resources */,
 				539F1B2A1B0E33DA002F90C5 /* GameScene.sks in Resources */,
 				539F1B2C1B0E33DA002F90C5 /* Images.xcassets in Resources */,
@@ -232,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5343727E1B1930A300D1175F /* StartScene.m in Sources */,
 				539F1B251B0E33DA002F90C5 /* main.m in Sources */,
 				534372781B18809E00D1175F /* Platform.m in Sources */,
 				539F1B281B0E33DA002F90C5 /* GameScene.m in Sources */,
