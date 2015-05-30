@@ -28,6 +28,7 @@
     SKScene *myScene = [[StartScene alloc] initWithSize:self.size];
     SKTransition *reveal = [SKTransition fadeWithDuration:0.5];
     [self.view presentScene:myScene transition:reveal];
+    
 }
 
 -(void)newGame: (int) lvl
@@ -93,7 +94,7 @@
     // 2
     SKSpriteNode *sprite;
     
-    sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Tile"];
+    sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Door"];
     [sprite setScale:0.5];
     [node addChild:sprite];
     
@@ -102,6 +103,7 @@
     node.physicsBody.dynamic = NO;
     //node.physicsBody.categoryBitMask = CollisionCategoryPlatform;
     node.physicsBody.collisionBitMask = 0;
+    
     
     return node;
 }
@@ -223,6 +225,7 @@
 {
     [self removeAllChildren];
     [self newGame:lvl];
+    
 }
 
 
