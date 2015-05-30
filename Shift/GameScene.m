@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "Platform.h"
 #import "StartScene.h"
+#import "EndScene.h"
 
 @implementation GameScene
 {
@@ -203,12 +204,19 @@
                     break;
                 case NSDownArrowFunctionKey:
                     //self.defaultPlayer.moveBack = downOrUp;
-                    [self resetLvl];
-                    
+                    //[self resetLvl];
+                    [self gameOver];
                     break;
             }
         }
     }
+}
+
+-(void)gameOver
+{
+    SKScene *myScene = [[EndScene alloc] initWithSize:self.size];
+    SKTransition *reveal = [SKTransition fadeWithDuration:0.5];
+    [self.view presentScene:myScene transition:reveal];
 }
 
 -(void)resetLvl

@@ -20,6 +20,7 @@
 		539F1B451B0E375E002F90C5 /* File in Resources */ = {isa = PBXBuildFile; fileRef = 539F1B441B0E375E002F90C5 /* File */; };
 		53A6AEFE1B19408200D4C9FB /* EndScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53A6AEFC1B19408200D4C9FB /* EndScene.sks */; };
 		53A6AEFF1B19408200D4C9FB /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53A6AEFD1B19408200D4C9FB /* StartScene.sks */; };
+		53A6AF021B1942F100D4C9FB /* EndScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A6AF011B1942F100D4C9FB /* EndScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		539F1B441B0E375E002F90C5 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		53A6AEFC1B19408200D4C9FB /* EndScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScene.sks; sourceTree = "<group>"; };
 		53A6AEFD1B19408200D4C9FB /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
+		53A6AF001B1942F100D4C9FB /* EndScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndScene.h; sourceTree = "<group>"; };
+		53A6AF011B1942F100D4C9FB /* EndScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				539F1B221B0E33DA002F90C5 /* AppDelegate.m */,
 				539F1B261B0E33DA002F90C5 /* GameScene.h */,
 				539F1B271B0E33DA002F90C5 /* GameScene.m */,
+				53A6AF001B1942F100D4C9FB /* EndScene.h */,
+				53A6AF011B1942F100D4C9FB /* EndScene.m */,
 				539F1B291B0E33DA002F90C5 /* GameScene.sks */,
 				539F1B2B1B0E33DA002F90C5 /* Images.xcassets */,
 				539F1B2D1B0E33DA002F90C5 /* MainMenu.xib */,
@@ -246,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5343727E1B1930A300D1175F /* StartScene.m in Sources */,
+				53A6AF021B1942F100D4C9FB /* EndScene.m in Sources */,
 				539F1B251B0E33DA002F90C5 /* main.m in Sources */,
 				534372781B18809E00D1175F /* Platform.m in Sources */,
 				539F1B281B0E33DA002F90C5 /* GameScene.m in Sources */,
