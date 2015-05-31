@@ -133,15 +133,15 @@
                 sprite.physicsBody.dynamic = NO;
                 //turn collision off
                 sprite.physicsBody.collisionBitMask = 0;
-                [black_spikes addChild:sprite];
+                [black addChild:sprite];
             }
             
         }
     }
     [self addChild:black];
     [self addChild:white];
-    [self addChild:black_spikes];
-    [self addChild:white_spikes];
+    //[self addChild:black_spikes];
+    //[self addChild:white_spikes];
 }
 
 -(void)changeTiles
@@ -291,6 +291,8 @@
         colOfTile.position = CGPointMake(colOfTile.position.x, colOfTile.position.y * -1 + self.size.height);
         colOfTile.physicsBody.categoryBitMask = 0;
         colOfTile.physicsBody.dynamic = NO;
+        //colOfTile.zRotation = M_PI_2;
+        [colOfTile runAction:[SKAction rotateByAngle: M_PI duration:0]];
     }
     
     for(SKSpriteNode *colOnTile in colOnTileList.children){
@@ -298,8 +300,9 @@
         colOnTile.physicsBody.dynamic = YES;
         colOnTile.position = CGPointMake(colOnTile.position.x, colOnTile.position.y * -1 + self.size.height);
         colOnTile.physicsBody.categoryBitMask = 1;
-
+        //colOnTile.zRotation = M_PI_2;
         colOnTile.physicsBody.dynamic = NO;
+        [colOnTile runAction:[SKAction rotateByAngle: M_PI duration:0]];
     }
     
 }
