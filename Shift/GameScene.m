@@ -78,7 +78,7 @@
         sprite.physicsBody.dynamic = NO;
         
         //turn colision off
-        sprite.physicsBody.collisionBitMask = 0;
+        sprite.physicsBody.categoryBitMask = 0;
         [white addChild:sprite];
         //[self addChild:sprite];
     }
@@ -130,16 +130,17 @@
     _character.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_character.size];
     _character.physicsBody.dynamic = YES;
     _character.physicsBody.allowsRotation = NO;
-    [self addChild:_character];
+
     //[self walking];
     
     
     [self initBlackTiles];
     [self initWhiteTiles];
-    
+        [self addChild:_character];
     
     [self addChild:black];
     [self addChild:white];
+
     
     
     Platform *platform = [self createPlatformAtPosition:CGPointMake(160, 320)];
@@ -212,7 +213,7 @@
     for(SKSpriteNode *colOfTile in colOfTileList.children){
         colOfTile.physicsBody.dynamic = YES;
         colOfTile.position = CGPointMake(colOfTile.position.x, colOfTile.position.y * -1 + self.size.height);
-        colOfTile.physicsBody.collisionBitMask = 0;
+        colOfTile.physicsBody.categoryBitMask = 0;
         colOfTile.physicsBody.dynamic = NO;
     }
     
@@ -220,11 +221,10 @@
         
         colOnTile.physicsBody.dynamic = YES;
         colOnTile.position = CGPointMake(colOnTile.position.x, colOnTile.position.y * -1 + self.size.height);
-        colOnTile.physicsBody.collisionBitMask = 0;
+        colOnTile.physicsBody.categoryBitMask = 1;
+
         colOnTile.physicsBody.dynamic = NO;
     }
-    
-    
     
 }
 
@@ -301,7 +301,7 @@
                     
                     if(isBlack){
                         [self changePosition: black  with: white ];
-
+                        isBlack = false;
                     } else {
                         [self changePosition: white  with: black ];
                         isBlack = true;
