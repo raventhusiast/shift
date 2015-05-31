@@ -52,11 +52,13 @@
         sprite.position = CGPointMake(i * sprite.size.width/2, sprite.size.height / 2);
         sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(sprite.size.width, sprite.size.height)];
         sprite.physicsBody.dynamic = NO;
+        //turn collision off
+        sprite.physicsBody.collisionBitMask = 0;
         [black addChild:sprite];
         //[self addChild:sprite];
     }
     
-    //[self addChild:black];
+    [self addChild:black];
 }
 
 -(void)initWhiteTiles
@@ -74,24 +76,27 @@
         sprite.position = CGPointMake(i * sprite.size.width/2, sprite.size.height / 2+ 500);
         sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(sprite.size.width, sprite.size.height)];
         sprite.physicsBody.dynamic = NO;
+        
+        //turn colision off
+        sprite.physicsBody.collisionBitMask = 0;
         [white addChild:sprite];
         //[self addChild:sprite];
     }
     
-    //[self addChild:white];
+    [self addChild:white];
    
 }
 
 -(void)changeTiles
 {
-    if (isBlack){
-        [white removeFromParent];
-        [self addChild:black];
-    }
-    else{
-        [black removeFromParent];
-        [self addChild:white];
-    }
+    //if (isBlack){
+        //[white removeFromParent];
+      //  [self addChild:black];
+    //}
+   // else{
+        //[black removeFromParent];
+      //  [self addChild:white];
+    //}
 }
 
 -(void)newGame: (int) lvl
@@ -134,6 +139,7 @@
     
     
     [self addChild:black];
+    [self addChild:white];
     
     
     Platform *platform = [self createPlatformAtPosition:CGPointMake(160, 320)];
@@ -199,6 +205,27 @@
 
 - (void)keyUp:(NSEvent *)event {
     [self handleKeyEvent:event keyDown:NO];
+}
+
+-(void)changePosition: (SKSpriteNode*) colOnTileList  with: (SKSpriteNode*) colOfTileList{
+    
+    for(SKSpriteNode *colOfTile in colOfTileList.children){
+        colOfTile.physicsBody.dynamic = YES;
+        colOfTile.position = CGPointMake(colOfTile.position.x, colOfTile.position.y * -1 + self.size.height);
+        colOfTile.physicsBody.collisionBitMask = 0;
+        colOfTile.physicsBody.dynamic = NO;
+    }
+    
+    for(SKSpriteNode *colOnTile in colOnTileList.children){
+        
+        colOnTile.physicsBody.dynamic = YES;
+        colOnTile.position = CGPointMake(colOnTile.position.x, colOnTile.position.y * -1 + self.size.height);
+        colOnTile.physicsBody.collisionBitMask = 0;
+        colOnTile.physicsBody.dynamic = NO;
+    }
+    
+    
+    
 }
 
 - (void)handleKeyEvent:(NSEvent *)event keyDown:(BOOL)downOrUp {
@@ -269,10 +296,28 @@
                     [self changeTiles];
                     //[self gameOver];
                     break;
+                    
+                case 'w':
+                    
+                    if(isBlack){
+                        [self changePosition: black  with: white ];
+
+                    } else {
+                        [self changePosition: white  with: black ];
+                        isBlack = true;
+                    }
+
+                    
+                    
+                    break;
+                    
+                    
             }
         }
     }
 }
+
+
 
 -(void)gameOver
 {
