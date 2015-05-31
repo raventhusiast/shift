@@ -14,6 +14,9 @@
 @implementation GameScene
 {
     SKSpriteNode *_character;
+    SKSpriteNode *black;
+    SKSpriteNode *white;
+    BOOL isBlack;
     int lvl;
     
 }
@@ -31,12 +34,72 @@
     
 }
 
+-(void)initBlackTiles
+{
+    //create ground
+    SKTexture* blackTexture = [SKTexture textureWithImageNamed:@"Tile"];
+    blackTexture.filteringMode = SKTextureFilteringNearest;
+    
+    
+    //list of black tiles
+    
+    
+    
+    for( int i = 0; i < 16 + self.frame.size.width / ( blackTexture.size.width * 2 ); ++i ) {
+        // Create the sprite
+        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:blackTexture];
+        [sprite setScale:0.5];
+        sprite.position = CGPointMake(i * sprite.size.width/2, sprite.size.height / 2);
+        sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(sprite.size.width, sprite.size.height)];
+        sprite.physicsBody.dynamic = NO;
+        [black addChild:sprite];
+        //[self addChild:sprite];
+    }
+    
+    //[self addChild:black];
+}
+
+-(void)initWhiteTiles
+{
+    //list of white tiles
+    
+    SKTexture* whiteTexture = [SKTexture textureWithImageNamed:@"White_Tile"];
+    whiteTexture.filteringMode = SKTextureFilteringNearest;
+    
+    
+    for( int i = 0; i < 16 + self.frame.size.width / ( whiteTexture.size.width * 2 ); ++i ) {
+        // Create the sprite
+        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:whiteTexture];
+        [sprite setScale:0.5];
+        sprite.position = CGPointMake(i * sprite.size.width/2, sprite.size.height / 2+ 500);
+        sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(sprite.size.width, sprite.size.height)];
+        sprite.physicsBody.dynamic = NO;
+        [white addChild:sprite];
+        //[self addChild:sprite];
+    }
+    
+    //[self addChild:white];
+   
+}
+
+-(void)changeTiles
+{
+    if (isBlack){
+        [white removeFromParent];
+        [self addChild:black];
+    }
+    else{
+        [black removeFromParent];
+        [self addChild:white];
+    }
+}
+
 -(void)newGame: (int) lvl
 {
     self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 );
     
     
-    [self setBackgroundColor:[SKColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0]];
+    [self setBackgroundColor:[SKColor colorWithRed:230/255.0f green:25/255.0f blue:220/255.0f alpha:1.0]];
     /* Setup your scene here
      SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
      
@@ -47,10 +110,11 @@
      
      [self addChild:myLabel];
      */
+    isBlack = true;
     
     
-    
-    
+    black = [SKSpriteNode new];
+    white = [SKSpriteNode new];
     SKTexture *temp3 = [SKTexture textureWithImageNamed:@"still"];
     _character = [SKSpriteNode spriteNodeWithTexture:temp3];
     [_character setScale:0.5];
@@ -64,20 +128,13 @@
     [self addChild:_character];
     //[self walking];
     
-    //create ground
-    SKTexture* groundTexture = [SKTexture textureWithImageNamed:@"Tile"];
-    groundTexture.filteringMode = SKTextureFilteringNearest;
     
-    for( int i = 0; i < 16 + self.frame.size.width / ( groundTexture.size.width * 2 ); ++i ) {
-        // Create the sprite
-        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:groundTexture];
-        [sprite setScale:0.5];
-        sprite.position = CGPointMake(i * sprite.size.width/2, sprite.size.height / 2);
-        sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(sprite.size.width, sprite.size.height)];
-        sprite.physicsBody.dynamic = NO;
-        
-        [self addChild:sprite];
-    }
+    [self initBlackTiles];
+    [self initWhiteTiles];
+    
+    
+    [self addChild:black];
+    
     
     Platform *platform = [self createPlatformAtPosition:CGPointMake(160, 320)];
     [self addChild:platform];
@@ -207,7 +264,10 @@
                 case NSDownArrowFunctionKey:
                     //self.defaultPlayer.moveBack = downOrUp;
                     //[self resetLvl];
-                    [self gameOver];
+                    
+                    isBlack = !(isBlack);
+                    [self changeTiles];
+                    //[self gameOver];
                     break;
             }
         }
