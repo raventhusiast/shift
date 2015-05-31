@@ -11,6 +11,10 @@
 #import "StartScene.h"
 #import "EndScene.h"
 
+static const uint32_t charCategory     =  0x1 << 0;
+static const uint32_t spikeCategory        =  0x1 << 1;
+
+
 @implementation GameScene
 {
     SKSpriteNode *_character;
@@ -20,6 +24,8 @@
     SKSpriteNode *white_spikes;
     BOOL isBlack;
     int lvl;
+    
+    
     
 }
 -(void)didMoveToView:(SKView *)view {
@@ -133,6 +139,9 @@
                 sprite.physicsBody.dynamic = NO;
                 //turn collision off
                 sprite.physicsBody.collisionBitMask = 0;
+                sprite.physicsBody.contactTestBitMask = spikeCategory;
+                sprite.physicsBody.categoryBitMask = charCategory;
+                sprite.physicsBody.usesPreciseCollisionDetection = YES;
                 [black addChild:sprite];
             }
             
@@ -173,6 +182,7 @@
     
     
     self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 );
+    self.physicsWorld.contactDelegate = self;
     
     
     [self setBackgroundColor:[SKColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0]];
@@ -205,6 +215,11 @@
     _character.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_character.size];
     _character.physicsBody.dynamic = YES;
     _character.physicsBody.allowsRotation = NO;
+    _character.physicsBody.restitution = 0.0;
+    _character.physicsBody.categoryBitMask = spikeCategory;
+    _character.physicsBody.contactTestBitMask = charCategory;
+    _character.physicsBody.usesPreciseCollisionDetection =YES;
+    
 
     //[self walking];
     
@@ -386,7 +401,7 @@
                         isBlack = true;
                     }
 
-                    
+                
                     
                     break;
                     
@@ -400,7 +415,7 @@
 
 -(void)gameOver
 {
-    SKScene *myScene = [[EndScene alloc] initWithSize:self.size];
+    SKScene *myScene = [[EndScene alloc] initWithSize: self.size];
     SKTransition *reveal = [SKTransition fadeWithDuration:0.5];
     [self.view presentScene:myScene transition:reveal];
 }
@@ -410,6 +425,28 @@
     [self removeAllChildren];
     [self newGame:lvl];
     
+}
+
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+    SKPhysicsBody *firstBody, *secondBody;
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
+    {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    }
+    else
+    {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    
+    if ((firstBody.categoryBitMask & charCategory) != 0 &&
+        (secondBody.categoryBitMask & spikeCategory) != 0)
+    {
+        [self gameOver];
+        
+    }
 }
 
 
