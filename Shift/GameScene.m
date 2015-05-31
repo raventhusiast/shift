@@ -16,6 +16,8 @@
     SKSpriteNode *_character;
     SKSpriteNode *black;
     SKSpriteNode *white;
+    SKSpriteNode *black_spikes;
+    SKSpriteNode *white_spikes;
     BOOL isBlack;
     int lvl;
     
@@ -86,6 +88,61 @@
     [self addChild:white];
    
 }
+-(void)initTiles: (int[10][15]) array
+{
+    for(int i=0; i<10; i++){
+        for(int j=0; j<15; j++){
+            int temp = array[i][j];
+            if (temp ==0){
+                /*
+                SKTexture* whiteTexture = [SKTexture textureWithImageNamed:@"White_Tile"];
+                whiteTexture.filteringMode = SKTextureFilteringNearest;
+                SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:whiteTexture];
+                [sprite setScale:0.5];
+                sprite.position = CGPointMake((j+0.5) * (sprite.size.width), (i+0.5)*(sprite.size.height));
+                sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(sprite.size.width, sprite.size.height)];
+                sprite.physicsBody.dynamic = NO;
+                
+                //turn colision off
+                sprite.physicsBody.categoryBitMask = 0;
+                [white addChild:sprite];
+                 */
+            }
+            else if (temp == 1){
+                SKTexture* blackTexture = [SKTexture textureWithImageNamed:@"Tile"];
+                blackTexture.filteringMode = SKTextureFilteringNearest;
+                SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:blackTexture];
+                [sprite setScale:0.5];
+                sprite.position = CGPointMake((j+0.5) * (sprite.size.width), (i+0.5)*(sprite.size.height));
+                sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(sprite.size.width, sprite.size.height)];
+                sprite.physicsBody.dynamic = NO;
+                //turn collision off
+                sprite.physicsBody.collisionBitMask = 0;
+                [black addChild:sprite];
+            }
+            else if (temp == 2){
+                
+            }
+            else if (temp == 3){
+                SKTexture* blackTexture = [SKTexture textureWithImageNamed:@"Black_Spike_Up"];
+                blackTexture.filteringMode = SKTextureFilteringNearest;
+                SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:blackTexture];
+                [sprite setScale:0.5];
+                sprite.position = CGPointMake((j+0.5) * (sprite.size.width), (i+0.25)*(sprite.size.height)*2);
+                sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(sprite.size.width, sprite.size.height)];
+                sprite.physicsBody.dynamic = NO;
+                //turn collision off
+                sprite.physicsBody.collisionBitMask = 0;
+                [black_spikes addChild:sprite];
+            }
+            
+        }
+    }
+    [self addChild:black];
+    [self addChild:white];
+    [self addChild:black_spikes];
+    [self addChild:white_spikes];
+}
 
 -(void)changeTiles
 {
@@ -101,10 +158,24 @@
 
 -(void)newGame: (int) lvl
 {
+    int lvl_array[10][15] = {
+        {1,3,3,3,3,3,3,3,3,3,3,1,1,1,1},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+        {1,0,0,0,0,0,1,1,1,1,0,1,0,0,1},
+        {1,0,0,0,0,0,0,0,0,0,0,0,1,0,1},
+        {1,0,0,0,1,1,1,0,0,0,0,0,0,0,1},
+        {1,0,0,0,1,3,1,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+    };
+    
+    
     self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 );
     
     
-    [self setBackgroundColor:[SKColor colorWithRed:230/255.0f green:25/255.0f blue:220/255.0f alpha:1.0]];
+    [self setBackgroundColor:[SKColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1.0]];
     /* Setup your scene here
      SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
      
@@ -113,6 +184,7 @@
      myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
      CGRectGetMidY(self.frame));
      
+     
      [self addChild:myLabel];
      */
     isBlack = true;
@@ -120,9 +192,12 @@
     
     black = [SKSpriteNode new];
     white = [SKSpriteNode new];
+    black_spikes = [SKSpriteNode new];
+    white_spikes = [SKSpriteNode new];
+    [self initTiles: lvl_array];
     SKTexture *temp3 = [SKTexture textureWithImageNamed:@"still"];
     _character = [SKSpriteNode spriteNodeWithTexture:temp3];
-    [_character setScale:0.5];
+    [_character setScale:0.3];
     
     
     
@@ -134,17 +209,18 @@
     //[self walking];
     
     
-    [self initBlackTiles];
-    [self initWhiteTiles];
-        [self addChild:_character];
+    //[self initBlackTiles];
+    //[self initWhiteTiles];
+    [self addChild:_character];
     
-    [self addChild:black];
-    [self addChild:white];
+    
 
     
     
     Platform *platform = [self createPlatformAtPosition:CGPointMake(160, 320)];
     [self addChild:platform];
+    Platform *platform2 = [self createPlatformAtPosition:CGPointMake(860, 500)];
+    [self addChild:platform2];
 }
 
 - (Platform *) createPlatformAtPosition:(CGPoint)position
@@ -176,7 +252,7 @@
 
 -(void)moveRightChar
 {
-    [_character setTexture:[SKTexture textureWithImageNamed:@"run"]];
+    //[_character setTexture:[SKTexture textureWithImageNamed:@"run"]];
     
     //CGPoint moveDifference = CGPointMake(_character.position.x+20, _character.position.y);
     //[_character runAction:[SKAction moveTo:moveDifference duration:0.2]];  //3
